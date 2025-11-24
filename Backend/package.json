@@ -11,8 +11,10 @@
     "start": "tsx watch src/index.ts"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2",
     "tsx": "^4.20.6",
@@ -20,7 +22,9 @@
     "typeorm-naming-strategies": "^4.1.0"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/express": "^5.0.5",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.10.1"
   }
 }
