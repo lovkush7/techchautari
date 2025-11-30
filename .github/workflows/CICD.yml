@@ -42,7 +42,7 @@ jobs:
         run: npm run build --if-present
         
       - name: build docker image
-        run: docker build -t my-app:latest
+        run: docker build -t my-app:latest .
 
              
   compile_backend:
