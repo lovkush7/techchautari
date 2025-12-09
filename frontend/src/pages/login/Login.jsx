@@ -1,11 +1,80 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+import "./Login.css";
+import Useauthstore from '../../authstore/authstore';
+
 
 const Login = () => {
+    const [text , settext] = useState({
+        Fullname: "",
+        Email: "",
+        Password: "",
+    });
+
+    const [error, seterror]=useState("")
+    const [submiting, setsubmiting] = useState(false);
+
+    const {login} = Useauthstore()
+
+    const handlesubmit =async(e)=>{
+      e.preventDefault();
+      seterror("")
+      try{
+        await login?.(text);
+
+      }catch(err){
+        console.log("the error is"+err)
+        seterror("cannot login the pages",err)
+      }
+
+    }
+    const handlechange =(e)=>{
+        console.log(e.target.value);
+        settext({...text,[e.target.name]:e.target.value})
+
+
+    }
   return (
-    <div>
+    <div className='container'>
+        <form className='form' action="">
+            <div className="header-part">
+              <img style={{width:"6rem", height:"6rem"}} src="./Teech.png" alt="" />
+              <h2>WELCOME BACK</h2>
+              <p>Login to access your account  </p>  
+            </div>
+            {error && <p className='error' style={{color:"red"}}>{error}</p>}
+
+          
+              <div className="input-field">
+                <label htmlFor="">Email</label>
+                <input
+                 type="email"
+                 name='Email'
+                 value={text.Email}
+                 onChange={handlechange}
+                 placeholder='Enter the email'
+                 required
+                 />
+            </div>
+
+      <div className="input-field">
+                <label htmlFor="">Password</label>
+                <input
+                 type="password"
+                 name='Password'
+                 value={text.Password}
+                 onChange={handlechange}
+                 placeholder='Enter the password'
+                 required
+                 />
+            </div>
+            <button className='btn'>login</button>
+          <center>  <p className='bottom-type' style={{}}>Don't have an account? <Link to="/signup">signup</Link></p></center>
+
+        </form>
       
     </div>
   )
 }
 
-export default Login
+export default Login;

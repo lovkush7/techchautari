@@ -5,18 +5,21 @@ import Login from './pages/login/Login'
 import Signup from './pages/signup/Signup'
 import Useauthstore from './authstore/authstore'
 
+
 const App = () => {
     const {authstore,check,ischeckingauth} = Useauthstore();
 
     useEffect(()=>{
         check();
     },[check])
+     console.log(ischeckingauth);
 
     console.log("the error is "+authstore);
 
-    if(ischeckingauth && !authstore){
+    if(ischeckingauth ){
         return <div>loading...</div>
     }
+   
 
 
   return (

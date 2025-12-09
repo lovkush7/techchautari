@@ -1,12 +1,13 @@
 import { create } from "zustand"
 import api from "../api/api";
 
-const Useauthstore = create((set)=>({
+const Useauthstore = create((set,get)=>({
     authstore: null,
+      ischeckingauth: true,
     isLoggingup: false,
     isSiginingup: false,
     isupdatingprofile: false,
-    ischeckingauth: true,
+  
 
 
 
@@ -16,8 +17,10 @@ const Useauthstore = create((set)=>({
 
             const res = await api.get("/auth/check");
             set({authstore: res.data})
+            console.log(res);
 
         }catch(err){
+            set({authstore:null})
             console.log(err)
         }finally{
             set({ischeckingauth: false});

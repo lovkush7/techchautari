@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import "./Signup.css";
+import Useauthstore from '../../authstore/authstore';
 
 
 const Signup = () => {
@@ -13,7 +14,19 @@ const Signup = () => {
     const [error, seterror]=useState("")
     const [submiting, setsubmiting] = useState(false);
 
-    const handlesubmit =()=>{
+    const {signup} = Useauthstore();
+
+    const handlesubmit = async(e)=>{
+      e.preventDefault();
+      seterror("");
+      try{
+        await signup?.(text);
+
+      }catch(err){
+        console.log(err);
+        seterror("cannot signup the page",err)
+      }
+      
 
     }
     const handlechange =(e)=>{
@@ -24,9 +37,9 @@ const Signup = () => {
     }
   return (
     <div className='container'>
-        <form className='form' action="">
+        <form className='form' onSubmit={handlesubmit} action="">
             <div className="header-part">
-              <img style={{width:"6rem", height:"6rem"}} src="./tech.png" alt="" />
+              <img style={{width:"6rem", height:"6rem"}} src="./Teech.png" alt="" />
               <h2>CREATE ACCOUNT</h2>
               <p>Get Started with account </p>  
             </div>
@@ -44,7 +57,7 @@ const Signup = () => {
                  />
             </div>
               <div className="input-field">
-                <label htmlFor="">email</label>
+                <label htmlFor="">Email</label>
                 <input
                  type="email"
                  name='Email'
@@ -67,7 +80,7 @@ const Signup = () => {
                  />
             </div>
             <button className='btn'>sign up</button>
-            <p>Already have an account? <Link to="/login">login</Link></p>
+          <center>  <p className='bottom-type' style={{}}>Already have an account? <Link to="/login">login</Link></p></center>
 
         </form>
       
