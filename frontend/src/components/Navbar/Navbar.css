@@ -1,0 +1,21 @@
+.navbar{
+    padding-bottom: 20px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-menu{
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    color: #49557e;
+    font-size: 15px;
+    cursor: pointer;
+
+}
+.navbar-menu .active{
+    padding-bottom: 4px;
+    /* border-bottom: 2px solid #49557e; */
+     border-bottom: 2px solid #000;
+     color: #000;
+}

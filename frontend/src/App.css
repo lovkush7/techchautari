@@ -1,0 +1,16 @@
+/* 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+*{
+    font-family: outfit;
+
+} */
+ @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+ *{
+   
+    box-sizing: border-box;
+    font-family: outfit;
+ }
+ body{
+    min-height: 100vh;
+ }
