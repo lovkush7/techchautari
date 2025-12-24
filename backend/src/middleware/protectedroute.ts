@@ -18,15 +18,16 @@ const protectedroute =async (
 
     try{
         const token = req.cookies.jwt;
+        console.log("teh token is ",token);
 
         if(!token){
-            return res.status(301).json({success: false,status: 301, message: "token not provided "})
+            return res.status(401).json({success: false, message: "token not provided "})
         }
         
          const decode = jwt.verify(token,Envconfig.JWT_SECRET!);
 
            if(!decode){
-            return res.json({success: false, message: "token expired"})
+            return res.status(401).json({success: false, message: "token expired"})
 
         }
         const {userid} = decode as {userid: string}
@@ -39,7 +40,7 @@ const protectedroute =async (
     })
 
     if(!user){
-        return res.json({success: false , message: "user not found "})
+        return res.status(404).json({success: false , message: "user not found "})
     }
     req.user = user;
 

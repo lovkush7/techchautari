@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import "./Login.css";
-import Useauthstore from '../../authstore/authstore';
+// import Useauthstore from '../../authstore/authstore';
+import Authcontrol from '../../controlauth/authcontrol';
 
 
 const Login = () => {
@@ -13,7 +14,8 @@ const Login = () => {
     const [error, seterror]=useState("")
     const [submiting, setsubmiting] = useState(false);
 
-    const {login} = Useauthstore()
+    // const {login} = Useauthstore()
+    const {login} = Authcontrol();
 
     const handlesubmit =async(e)=>{
       e.preventDefault();

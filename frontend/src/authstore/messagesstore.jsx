@@ -12,8 +12,8 @@ const Usemessages = create((set,get)=>({
         try{
             set({isuserloading: true})
             const res = await api.get("/auth/getusers");
-            set({Users: res.data});
-            console.log(res.data);
+            set({Users: res.data.data});
+            console.log("the users from backend",res.data);
 
         }catch(err){
             console.log("the error is"+err);
@@ -46,7 +46,7 @@ const Usemessages = create((set,get)=>({
             console.log("the error is "+err)
         }
     },
-    setselectedusers: async(selectedUsers)=>{
+    setselectedUsers: async(selectedUsers)=>{
         set({selectedUsers})
 
     }

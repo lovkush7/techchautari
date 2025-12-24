@@ -8,7 +8,8 @@ class CheckController {
     ){
        
        try{
-        return res.json(req.user);
+        console.log(req.user);
+        res.json(req.user);
 
        } catch(err){
         console.log("the error is "+err)

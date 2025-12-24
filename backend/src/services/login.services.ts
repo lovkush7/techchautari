@@ -14,10 +14,9 @@ class Loginservice {
             const {email,password} =req.body;
 
             if(!email || !password){
-                return {status:301,
-                    success: false,
-                    message: "please provide the necessary alice"
-                }
+                return res.status(301).json({success: false,
+                    message: "please provide the necessary alice"})
+                        
             }
 
             const user = await User.findOne({
@@ -26,22 +25,23 @@ class Loginservice {
                 }
             });
             if(!user){
-                return {success: false, message:"user dosent exist please register"}
+                return res.status(401).json({success: false, message:"user dosent exist please register"})
             }
 
-            const ispasscheck = bcrypt.compareSync(password,user.password);
+            const ispasscheck = await bcrypt.compare(password,user.password);
+
             if(!ispasscheck){
-                return {success:false,message:"invalid password"}
+                return res.status(401).json({success:false,message:"invalid password"})
             }
 
             generateToken(res,user.id);
 
-            return {
+            return res.status(200).json({
                 success: true,
                 message: "user login successfully",
                 email: user.email,
                 fullname: user.Fullname
-            }
+            })
 
         }catch(err){
             console.log("the error is "+err);
