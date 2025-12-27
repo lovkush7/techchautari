@@ -1,0 +1,90 @@
+.sidebar{
+    height: 100%;
+    width: 5rem;
+    border-right: 1px solid #d1d5db;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+}
+
+@media (min-width: 1024px){
+    .sidebar{
+        width: 18rem;
+    }
+}
+.sidebar-header{
+    border-bottom: 1px solid #d1d5db;
+    width:100%;
+    padding:1.5rem;
+}
+.header-content{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.user-icons{
+    font-size: 1.5rem;
+}
+.sidebar-body{
+    overflow-y: auto;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.75rem;
+}
+.user-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border:none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.2s ease;
+}
+.user-btn:hover{
+    background-color: #d1d5db;
+}
+.user-btn.active{
+    background-color: #d1d5db;
+    box-shadow: 0 0 0 2px #d1d5db;
+}
+.user-profile{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.online-indicator{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: #22c55e;
+    box-shadow: 0 0  0 2px #18181b;
+}
+.user-info-details{
+    display: none;
+    align-items: center;
+    min-width: 0px;
+}
+@media (min-width: 1024px){
+    .user-info-details{
+        display: block;
+        text-align: start;
+    }
+}
+.user-fullname{
+    font-weight: 400;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.user-status{
+    font-size: 0.85rem;
+    color: #a1a1a1;
+    line-height: 1.25rem;
+}

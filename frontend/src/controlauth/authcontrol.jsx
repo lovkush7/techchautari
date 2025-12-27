@@ -7,6 +7,7 @@ const Authcontrol = create((set)=>({
     isloggingin: false,
     issigningup: false,
     isupdatingprofile: false,
+    onlineusers: [],
 
 
     check: async()=>{

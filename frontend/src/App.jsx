@@ -10,8 +10,9 @@ import Chat from './pages/chat/chat'
 import Network from './pages/Network/Network'
 import Jobs from './pages/Jobs/Jobs'
 import Notification from './pages/Notification/Notification'
-import Usemessages from './authstore/messagesstore'
+// import Usemessages from './authstore/messagesstore'
 import Authcontrol from './controlauth/authcontrol'
+import Usemessages from './controlauth/msgstroe'
 // import Chat from './components/chatbox/Chat'
 
 
@@ -28,7 +29,8 @@ const App = () => {
 
     useEffect(()=>{
       check();
-    },[])
+      getusers();
+    },[check,getusers])
      console.log(ischeckingauth);
      console.log( "the users are",Users);
       console.log( "the users ara",Users.data)

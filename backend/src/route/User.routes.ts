@@ -31,7 +31,7 @@ router.put("/update",protectedroute,async(req,res)=>{
     res.status(200).json({ data: user});
 })
 
-router.get("/getusers",protectedroute,async(req,res)=>{
+router.get("/getuser",protectedroute,async(req,res)=>{
   const user = await GetuserControllers.getuser(req,res);
   res.json({data: user})
 // =======
